@@ -37,10 +37,17 @@ public class ListeRep_1a1 {
 		}
 	}
 	
-	public void listerAvancee(FilenameFilter filtre) {
+	public void listerAvancee(File fichier, FilenameFilter filtre) {
 		File[] liste = fichier.listFiles();
 		for(File path : liste) {
+			
+			if(path.isDirectory()) {
+				System.out.println(path);
+				listerAvancee(path);
+			
+		}else {
 			System.out.println(path);
+		}
 		}
 	}
 	
@@ -50,6 +57,9 @@ public class ListeRep_1a1 {
 		//liste.listerSimple();
 		liste.listerAvancee(liste.fichier);
 		
+		//FilenameFilter filtre;
+		//filtre.paramString("ok");
+		//liste.listerAvancee(liste.fichier,filtre);
 		
 		
 	}
